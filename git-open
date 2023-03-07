@@ -9,11 +9,13 @@ url="${fetch_url/git@/https://}"
 # Replace "ssh.dev.azure.com" with "dev.azure.com"
 url="${url/ssh.dev.azure.com/dev.azure.com}"
 
-# Replace "v3" with "_git"
+# Remove ":v3"
 url="${url/:v3/}"
 
+# get only the repos name
 repo_name=$(git rev-parse --show-toplevel | xargs basename)
 
+# remove the repo name and insert _git/repo name to match azure repos syntax
 url="${url/${repo_name}/_git/${repo_name}}"
 
 # Print the rewritten URL

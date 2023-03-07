@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Run the "git remote show origin" command and extract the fetch URL
+fetch_url=$(git remote show origin | awk '/Fetch URL/ {print $NF}')
+
+# Replace "git@" with "https://"
+url="${fetch_url/git@/https://}"
+
+# Replace "ssh.dev.azure.com" with "dev.azure.com"
+url="${url/ssh.dev.azure.com/dev.azure.com}"
+
+# Replace "v3" with "_git"
+url="${url/:v3/}"
+
+repo_name=$(git rev-parse --show-toplevel | xargs basename)
+
+url="${url/${repo_name}/_git/${repo_name}}"
+
+# Print the rewritten URL
+echo "opening:"
+echo "$url"
+
+open "$url"

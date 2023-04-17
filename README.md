@@ -1,14 +1,23 @@
 # azure-open
 
-a fork of [git-open](https://github.com/paulirish/git-open) since git-open works just execellent with most providers this script is focused on working only with azure repos and their very specific url syntax
+It's essentially like [git-open](https://github.com/paulirish/git-open) and git-open works execellent with most providers, but not with azure repos that lives in `dev.azure.com`. So i made this little script so i can do the same as with `git open` but with `az-open`
 
 ## install
 
-echo 'alias az-open=<path/to/your/azure-open-file>' >> .zshrc
+clone this repo to a location of your choice
+
+basic:
+
+```bash
+echo 'alias az-open=<path/to/your/azure-open>' >> .zshrc
+```
+
+or you  can make the script into an executable and then symlink or move it into your $PATH
+|| .bashrc etc
 
 ## Test with
 
 navigate to an azure repository and run
 `$ az-open`
 
-this should open your default browser to the azure devops repository
+this should print the url and then open your default browser to the azure devops repository

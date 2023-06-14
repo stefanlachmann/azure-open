@@ -18,7 +18,7 @@ echo 'alias az-open=<path/to/your/azure-open>' >> .zshrc
 or you can make the script into an executable and then symlink or move it into
 your $PATH || .bashrc etc
 
-## Test with
+## Overview
 
 navigate to an azure repository and run `$ az-open`
 
